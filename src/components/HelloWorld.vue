@@ -97,10 +97,6 @@ export default {
     printt: function() {
       let vm = this
       let tada = 2
-
-      console.log(vm.tada)
-      console.log(this.tada)
-      console.log(tada)
     },
   },
   components: {

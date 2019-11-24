@@ -17,9 +17,6 @@ export default {
     localPrintt: function() {
       let vm = this
       let tada = 3
-      console.log(this.tada)
-      console.log(this.tada1)
-      console.log(tada)
     },
   },
   componenents: {
