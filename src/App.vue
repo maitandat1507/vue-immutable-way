@@ -2,8 +2,8 @@
   <div id="app">
     <img width="100px" src="./assets/logo.png">
     <div class="container">
-      <search-box :searchContent="searchContent"/>
-      <product-data-list :products="products"/>
+      <search-box v-on:update-search-content="updateSearchContent"/>
+      <product-data-list :products="products" :searchContent="searchContent"/>
     </div>
   </div>
 </template>
@@ -24,6 +24,12 @@ export default {
       products,
       searchContent: '', // main STATE
     }
+  },
+  methods: {
+    updateSearchContent: function(content) {
+      this.searchContent = content
+      console.log('txt: ', this.searchContent)
+    },
   },
 };
 </script>

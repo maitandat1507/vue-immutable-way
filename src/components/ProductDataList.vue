@@ -27,7 +27,13 @@
 
 <script>
 export default {
-  props: ['products'],
+  props: ['products', 'searchContent'],
+
+  watch: {
+    searchContent: function(newValue) {
+      console.log('from ProductDataList: ', newValue)
+    },
+  },
 
   data: function() {
     return {

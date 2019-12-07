@@ -1,7 +1,9 @@
 <template>
   <div class="row">
     <div class="offset-md-8 col-md-4 search-box">
-      <input type="text" class="form-control search-box__input">
+      <input type="text" class="form-control search-box__input"
+        v-model="searchContent"
+        ref="searchContent">
       <i class="fa fa-search search-box__icon"></i>
     </div>
   </div>
@@ -9,12 +11,21 @@
 
 <script>
 export default {
-  props: [],
+  data: function() {
+    return {
+      searchContent: ''
+    }
+  },
+  watch: {
+    searchContent: function(newValue) {
+      this.$emit('update-search-content', newValue)
+    },
+  },
+  methods: {},
 }
 </script>
 
 <style lang="scss" scoped>
-
 .search-box {
   &__input {
     position: relative;
@@ -30,5 +41,4 @@ export default {
     width: 35px;
   }
 }
-
 </style>
