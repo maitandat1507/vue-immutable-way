@@ -33,7 +33,7 @@ export default {
 
   watch: {
     searchContent: function(newValue) {
-      console.log('props updated from ProductDataList: ', this.searchContent)
+      console.log('from ProductDataList, via Event Bus (using `props`): ', this.searchContent)
     },
   },
 
@@ -49,7 +49,7 @@ export default {
 
   mounted: function() {},
 
-  methods: function() {
+  methods: {
     //
   },
 }

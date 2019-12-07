@@ -2,8 +2,10 @@
   <div id="app">
     <img width="100px" src="./assets/logo.png">
     <div class="container">
-      <search-box v-on:update-search-content="updateSearchContent"/>
-      <product-data-list :products="products" :searchContent="searchContent"/>
+      <search-box/>
+      <product-data-list
+        :products="products"
+        :searchContent="searchContent"/>
     </div>
   </div>
 </template>
@@ -27,15 +29,12 @@ export default {
     }
   },
   methods: {
-    updateSearchContent: function(content) {
-      this.searchContent = content
-      console.log('txt: ', this.searchContent)
-    },
+    // TODO
   },
   created() {
     eventBus.$on('searchContentEdited', (newContent) => {
       this.searchContent = newContent
-      console.log('update via Event Bus, from App: ', this.searchContent)
+      console.log('from App, update via Event Bus: ', this.searchContent)
     })
   },
 };
