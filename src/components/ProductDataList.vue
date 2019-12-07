@@ -26,12 +26,14 @@
 </template>
 
 <script>
+import { eventBus } from '../main'
+
 export default {
   props: ['products', 'searchContent'],
 
   watch: {
     searchContent: function(newValue) {
-      console.log('from ProductDataList: ', newValue)
+      console.log('props updated from ProductDataList: ', this.searchContent)
     },
   },
 

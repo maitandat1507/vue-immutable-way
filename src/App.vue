@@ -12,6 +12,7 @@
 import ProductDataList from './components/ProductDataList.vue'
 import SearchBox from './components/SearchBox.vue'
 import products from './mock/products.js'
+import { eventBus } from './main'
 
 export default {
   name: "App",
@@ -30,6 +31,12 @@ export default {
       this.searchContent = content
       console.log('txt: ', this.searchContent)
     },
+  },
+  created() {
+    eventBus.$on('searchContentEdited', (newContent) => {
+      this.searchContent = newContent
+      console.log('update via Event Bus, from App: ', this.searchContent)
+    })
   },
 };
 </script>
