@@ -3,7 +3,9 @@
     <img width="100px" src="./assets/logo.png">
     <div class="container">
       <p>from App: {{ getSearchContent }}</p>
+      <p>from App, search Async result (after few seconds): {{ getSearchContentAsync }}</p>
       <search-box/>
+      <search-box-async/>
       <product-data-list
         :products="products"/>
     </div>
@@ -13,6 +15,7 @@
 <script>
 import ProductDataList from './components/ProductDataList.vue'
 import SearchBox from './components/SearchBox.vue'
+import SearchBoxAsync from './components/SearchBoxAsync.vue'
 import products from './mock/products.js'
 import { eventBus } from './main'
 import { mapGetters } from 'vuex'
@@ -22,6 +25,7 @@ export default {
   components: {
     ProductDataList,
     SearchBox,
+    SearchBoxAsync,
   },
 
   data: function() {
@@ -38,7 +42,8 @@ export default {
 
   computed: {
     ...mapGetters([
-      'getSearchContent'
+      'getSearchContent',
+      'getSearchContentAsync'
     ]),
   },
 

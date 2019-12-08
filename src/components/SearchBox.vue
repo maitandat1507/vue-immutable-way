@@ -31,7 +31,10 @@ export default {
       // this.$store.state.searchContent = newValue
 
       // --- WAY 4 (using Mutations in Vuex)
-      this.$store.commit('changeSearchContent', newValue)
+      // this.$store.commit('changeSearchContent', newValue)
+
+      // --- WAY 5 (using Actions in Vuex)
+      this.$store.dispatch('changeSearchContent', newValue)
     },
   },
   computed: {
