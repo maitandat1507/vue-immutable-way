@@ -11,6 +11,7 @@
 
 <script>
 import { eventBus } from '../main'
+import { mapGetters } from 'vuex'
 
 export default {
   data: function() {
@@ -27,8 +28,16 @@ export default {
       // eventBus.$emit('searchContentEdited', newValue)
 
       // --- WAY 3 (use Vuex)
-      this.$store.state.searchContent = newValue
+      // this.$store.state.searchContent = newValue
+
+      // --- WAY 4 (using Mutations in Vuex)
+      this.$store.commit('changeSearchContent', newValue)
     },
+  },
+  computed: {
+    ...mapGetters([
+      'getSearchContent',
+    ]),
   },
   methods: {},
 }

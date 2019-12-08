@@ -1,5 +1,6 @@
 <template>
   <div class="row mt-2">
+    <h3>from List: {{ getSearchContent }}</h3>
     <table class="table table-striped table-hover">
       <thead>
         <tr class="font-weight-bold">
@@ -27,20 +28,19 @@
 
 <script>
 import { eventBus } from '../main'
+import { mapGetters } from 'vuex'
 
 export default {
   props: ['products'],
 
   watch: {
-    searchContent() {
-      console.log('from ProductDataList, via Event Bus (using `STORE Vuex`): ', this.$store.state.searchContent)
-    }
+    //
   },
 
   computed: {
-    searchContent() {
-      return this.$store.state.searchContent
-    }
+    ...mapGetters([
+      'getSearchContent'
+    ]),
   },
 
   data: function() {
