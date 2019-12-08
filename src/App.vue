@@ -2,8 +2,10 @@
   <div id="app">
     <img width="100px" src="./assets/logo.png">
     <div class="container">
-      <search-box v-on:update-search-content="updateSearchContent"/>
-      <product-data-list :products="products" :searchContent="searchContent"/>
+      <search-box/>
+      <product-data-list
+        :products="products"
+        :searchContent="searchContent"/>
     </div>
   </div>
 </template>
@@ -12,6 +14,7 @@
 import ProductDataList from './components/ProductDataList.vue'
 import SearchBox from './components/SearchBox.vue'
 import products from './mock/products.js'
+import { eventBus } from './main'
 
 export default {
   name: "App",
@@ -26,10 +29,13 @@ export default {
     }
   },
   methods: {
-    updateSearchContent: function(content) {
-      this.searchContent = content
-      console.log('txt: ', this.searchContent)
-    },
+    // TODO
+  },
+  created() {
+    eventBus.$on('searchContentEdited', (newContent) => {
+      this.searchContent = newContent
+      console.log('from App, update via Event Bus: ', this.searchContent)
+    })
   },
 };
 </script>

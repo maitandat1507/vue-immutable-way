@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { eventBus } from '../main'
+
 export default {
   data: function() {
     return {
@@ -18,7 +20,11 @@ export default {
   },
   watch: {
     searchContent: function(newValue) {
-      this.$emit('update-search-content', newValue)
+      // --- WAY 1:
+      // this.$emit('update-search-content', newValue)
+
+      // --- WAY 2 (use EventBus)
+      eventBus.$emit('searchContentEdited', newValue)
     },
   },
   methods: {},

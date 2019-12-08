@@ -26,12 +26,14 @@
 </template>
 
 <script>
+import { eventBus } from '../main'
+
 export default {
   props: ['products', 'searchContent'],
 
   watch: {
     searchContent: function(newValue) {
-      console.log('from ProductDataList: ', newValue)
+      console.log('from ProductDataList, via Event Bus (using `props`): ', this.searchContent)
     },
   },
 
@@ -47,7 +49,7 @@ export default {
 
   mounted: function() {},
 
-  methods: function() {
+  methods: {
     //
   },
 }
