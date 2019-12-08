@@ -24,7 +24,10 @@ export default {
       // this.$emit('update-search-content', newValue)
 
       // --- WAY 2 (use EventBus)
-      eventBus.$emit('searchContentEdited', newValue)
+      // eventBus.$emit('searchContentEdited', newValue)
+
+      // --- WAY 3 (use Vuex)
+      this.$store.state.searchContent = newValue
     },
   },
   methods: {},

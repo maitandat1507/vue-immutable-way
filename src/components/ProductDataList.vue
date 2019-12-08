@@ -29,12 +29,18 @@
 import { eventBus } from '../main'
 
 export default {
-  props: ['products', 'searchContent'],
+  props: ['products'],
 
   watch: {
-    searchContent: function(newValue) {
-      console.log('from ProductDataList, via Event Bus (using `props`): ', this.searchContent)
-    },
+    searchContent() {
+      console.log('from ProductDataList, via Event Bus (using `STORE Vuex`): ', this.$store.state.searchContent)
+    }
+  },
+
+  computed: {
+    searchContent() {
+      return this.$store.state.searchContent
+    }
   },
 
   data: function() {

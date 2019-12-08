@@ -22,21 +22,27 @@ export default {
     ProductDataList,
     SearchBox,
   },
+
   data: function() {
     return {
       products,
-      searchContent: '', // main STATE
     }
   },
+
   methods: {
     // TODO
   },
-  created() {
-    eventBus.$on('searchContentEdited', (newContent) => {
-      this.searchContent = newContent
-      console.log('from App, update via Event Bus: ', this.searchContent)
-    })
+
+  created() {},
+
+  computed: {
+    searchContent() {
+      console.log('from App, show searchContent from Store Vuex', this.$store.state.searchContent)
+      return this.$store.state.searchContent;
+    }
   },
+
+  
 };
 </script>
 
